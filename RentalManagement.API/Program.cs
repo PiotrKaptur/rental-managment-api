@@ -1,3 +1,4 @@
+using RentalManagement.API.TestHelpers;
 
 namespace RentalManagement.API
 {
@@ -21,6 +22,10 @@ namespace RentalManagement.API
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                //Testowe uruchomienie modeli
+                TestModel.Run();
+
             }
 
             app.UseHttpsRedirection();

@@ -18,7 +18,7 @@
         public decimal Amount { get; set; } = 0.0m;
 
         /// <summary>
-        /// Komentarz.
+        /// Komentarz do płatności.
         /// </summary>
         public string? Comment { get; set; } = string.Empty;
 
