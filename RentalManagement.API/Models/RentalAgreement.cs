@@ -27,5 +27,25 @@
         /// Kod waluty w której naliczana jest opłata. Domyślnie PLN. 
         /// </summary>
         public string Currency { get; set; } = "PLN";
+
+        /// <summary>
+        /// Id lokatora.
+        /// </summary>
+        public int TenantId { get; set; }
+
+        /// <summary>
+        /// Lokator przypisany do umowy.
+        /// </summary>
+        public Tenant? Tenant { get; set; }
+
+        /// <summary>
+        /// Id mieszkania.
+        /// </summary>
+        public int ApartmentId { get; set; }
+
+        /// <summary>
+        /// Miezkanie przypisane do umowy.
+        /// </summary>
+        public Apartment? Apartment { get; set; }
     }
 }
