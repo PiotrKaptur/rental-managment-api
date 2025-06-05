@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentalManagement.API.Data;
+using RentalManagement.API.Models;
 
 namespace RentalManagement.API.Controllers
 {
@@ -20,6 +21,14 @@ namespace RentalManagement.API.Controllers
         {
             var tenants = _context.Tenants.ToList();
             return Ok(tenants);
+        }
+
+        [HttpPost]
+        public IActionResult AddTenant([FromBody] Tenant tenant)
+        {
+            _context.Tenants.Add(tenant);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetAllTenants), new { id = tenant.Id }, tenant);
         }
     }
 }
