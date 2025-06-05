@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RentalManagement.API.Data;
 
 namespace RentalManagement.API.Controllers
 {
@@ -7,14 +8,17 @@ namespace RentalManagement.API.Controllers
     [ApiController]
     public class TenantController : ControllerBase
     {
+        private readonly RentalContext _context;
+
+        public TenantController(RentalContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
         public IActionResult GetAllTenants()
         {
-            var tenants = new List<object>
-            {
-            new { Id = 1, FirstName = "John", LastName = "Kowalski" },
-            new { Id = 2, FirstName = "Adam", LastName = "Nowak" }
-            };
-
+            var tenants = _context.Tenants.ToList();
             return Ok(tenants);
         }
     }
