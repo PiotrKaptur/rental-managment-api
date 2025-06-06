@@ -23,6 +23,58 @@ namespace RentalManagement.API.Controllers
             return Ok(tenants);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetTenantById(int id)
+        {
+            var tenant = _context.Tenants.FirstOrDefault(t => t.Id == id);
+
+            if(tenant == null)
+            {
+                return NotFound();
+            }
+            return Ok(tenant);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateTenant(int id, [FromBody] Tenant updatedTenant)
+        {
+            var tenant = _context.Tenants.FirstOrDefault(t => t.Id == id);
+
+            if (tenant == null)
+            {
+                return NotFound();
+            }
+
+            // Aktualizacja pól
+            tenant.FirstName = updatedTenant.FirstName;
+            tenant.LastName = updatedTenant.LastName;
+            tenant.PhoneNumber = updatedTenant.PhoneNumber;
+            tenant.Email = updatedTenant.Email;
+
+            _context.SaveChanges();
+
+
+            //204 No Content = OK, ale bez zwracania treści.
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTenant(int id)
+        {
+            var tenant = _context.Tenants.FirstOrDefault(t => t.Id == id);
+
+            if(tenant == null)
+            {
+                return NotFound();
+            }
+
+            // Usuwanie rekordu z bazy
+            _context.Tenants.Remove(tenant);
+            _context.SaveChanges();
+
+            return NoContent(); // 204 No Content
+        }
+
         [HttpPost]
         public IActionResult AddTenant([FromBody] Tenant tenant)
         {
