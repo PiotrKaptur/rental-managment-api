@@ -32,8 +32,8 @@ namespace RentalManagement.API.Controllers
         public IActionResult AddRentalAgreement([FromBody] RentalAgreement rentalAgreement)
         {
             // Sprawdzimy, czy istnieje Tenant i Apartment
-            var tenantExists = _context.Tenants.Any(t =>t.Id == rentalAgreement.Tenant.Id);
-            var apartmentExists = _context.Apartments.Any(a => a.Id == rentalAgreement.Apartment.Id);
+            var tenantExists = _context.Tenants.Any(t =>t.Id == rentalAgreement.TenantId); //było Tenant.Id
+            var apartmentExists = _context.Apartments.Any(a => a.Id == rentalAgreement.ApartmentId);//było Apartment.Id
 
             if(!tenantExists || !apartmentExists)
             {
