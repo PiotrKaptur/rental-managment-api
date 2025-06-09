@@ -25,6 +25,27 @@ namespace RentalManagement.API.Controllers
             return Ok(apartments);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateApartment(int id, [FromBody] Apartment updatedApartment)
+        {
+            var apartment = _context.Apartments.FirstOrDefault(t => t.Id == id);
+
+            if(apartment == null)
+            {
+                return NotFound();
+            }
+
+            // Aktualizacja pól
+            apartment.Address = updatedApartment.Address;
+            apartment.Floor = updatedApartment.Floor;
+            apartment.RoomCount = updatedApartment.RoomCount;
+            apartment.RentAmount = updatedApartment.RentAmount;
+
+            // Zapisanie zmian w bazie danych
+            _context.SaveChanges();
+            return Ok(apartment);
+        }
+
         [HttpPost]
         public IActionResult AddApartment([FromBody] Apartment apartment)
         {
