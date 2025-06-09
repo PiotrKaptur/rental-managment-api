@@ -46,6 +46,23 @@ namespace RentalManagement.API.Controllers
             return Ok(apartment);
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteApartment(int id)
+        {
+            var apartment = _context.Apartments.FirstOrDefault(t => t.Id == id);
+
+            if(apartment == null)
+            {
+                return NotFound();
+            }
+
+            // Usuwanie rekordu z bazy
+            _context.Apartments.Remove(apartment);
+            _context.SaveChanges();
+
+            return NoContent(); // 204 No Content - standard dla DELETE (REST API)
+        }
+
         [HttpPost]
         public IActionResult AddApartment([FromBody] Apartment apartment)
         {
