@@ -67,6 +67,22 @@ namespace RentalManagement.API.Controllers
 
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteRentalAgreement(int id)
+        {
+            var rentalAgreement = _context.RentalAgreements.FirstOrDefault(r => r.Id == id);
+
+            if(rentalAgreement == null)
+            {
+                return NotFound();
+            }
+
+            _context.RentalAgreements.Remove(rentalAgreement);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
+
         [HttpPost]
         public IActionResult AddRentalAgreement([FromBody] RentalAgreement rentalAgreement)
         {
