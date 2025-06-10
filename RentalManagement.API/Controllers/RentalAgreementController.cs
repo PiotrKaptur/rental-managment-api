@@ -28,6 +28,23 @@ namespace RentalManagement.API.Controllers
             return Ok(rentalAgreements);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetRentalAgreementById(int id)
+        {
+            var rentalAgreement = _context.RentalAgreements
+                .Include(r => r.Tenant)
+                .Include(r => r.Apartment)
+                .FirstOrDefault(t => t.Id == id);
+
+            if (rentalAgreement == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(rentalAgreement);
+        }
+
+
         [HttpPost]
         public IActionResult AddRentalAgreement([FromBody] RentalAgreement rentalAgreement)
         {
