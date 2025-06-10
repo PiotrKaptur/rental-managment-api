@@ -45,6 +45,28 @@ namespace RentalManagement.API.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateRentalAgreement(int id, [FromBody] RentalAgreement updatedRentalAgreement)
+        {
+            var rentalAgreement = _context.RentalAgreements.FirstOrDefault(r => r.Id == id);
+
+            if (rentalAgreement == null)
+            {
+                return NotFound();
+            }
+
+            // Aktualizacja pól
+            rentalAgreement.StartDate = updatedRentalAgreement.StartDate;
+            rentalAgreement.EndDate = updatedRentalAgreement.EndDate;
+            rentalAgreement.MonthlyPayment = updatedRentalAgreement.MonthlyPayment;
+            rentalAgreement.Currency = updatedRentalAgreement.Currency;
+
+            _context.SaveChanges();
+
+            return Ok(rentalAgreement);
+
+        }
+
         [HttpPost]
         public IActionResult AddRentalAgreement([FromBody] RentalAgreement rentalAgreement)
         {
