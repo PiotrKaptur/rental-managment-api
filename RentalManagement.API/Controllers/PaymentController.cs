@@ -15,6 +15,14 @@ namespace RentalManagement.API.Controllers
         public PaymentController(RentalContext context)
         {
             _context = context;
+
+
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            ;
         }
     }
 }

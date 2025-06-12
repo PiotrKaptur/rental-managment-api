@@ -79,7 +79,7 @@ namespace RentalManagement.API.Controllers
 
             _context.RentalAgreements.Remove(rentalAgreement);
             _context.SaveChanges();
-
+    
             return NoContent();
         }
 
