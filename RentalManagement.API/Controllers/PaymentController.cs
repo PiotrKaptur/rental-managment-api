@@ -24,5 +24,10 @@ namespace RentalManagement.API.Controllers
         {
             ;
         }
+        [HttpPost]
+        public IActionResult Post()
+        {
+            ;
+        }
     }
 }
