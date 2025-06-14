@@ -5,17 +5,23 @@ VisualStudioVersion = 17.14.36109.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalManagement.API", "RentalManagement.API.csproj", "{7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalManagement.Tests", "RentalManagement.Tests\RentalManagement.Tests.csproj", "{5B0BC852-890C-4446-807B-471E360FC42E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
+                {7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {7EDFB0EC-C8BC-4AFB-A16C-ED31FDD948D6}.Release|Any CPU.Build.0 = Release|Any CPU
+                {5B0BC852-890C-4446-807B-471E360FC42E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {5B0BC852-890C-4446-807B-471E360FC42E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {5B0BC852-890C-4446-807B-471E360FC42E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {5B0BC852-890C-4446-807B-471E360FC42E}.Release|Any CPU.Build.0 = Release|Any CPU
+        EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
