@@ -29,5 +29,11 @@ namespace RentalManagement.API.Controllers
         {
             ;
         }
+
+        [HttpDelete]
+        public IActionResult Delete()
+        {
+            ;
+        }
     }
 }
