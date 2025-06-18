@@ -25,6 +25,20 @@ namespace RentalManagement.API.Controllers
                 .ToList();
             return Ok(payments);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetAllPayments()
+        {
+            var payments = _context.Payments
+                .Include(p => p.RentalAgreement)
+                    .ThenInclude(r => r.Tenant)
+                .Include(p => p.RentalAgreement)
+                    .ThenInclude(r => r.Apartment)
+                .ToList();
+            return Ok(payments);
+        }
+
+
         [HttpPost]
         public IActionResult Post([FromBody] Payment payment)
         {
