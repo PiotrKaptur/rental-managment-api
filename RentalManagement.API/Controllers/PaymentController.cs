@@ -18,15 +18,6 @@ namespace RentalManagement.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
-        {
-            var payments = _context.Payments
-                .Include(p => p.RentalAgreement)
-                .ToList();
-            return Ok(payments);
-        }
-
-        [HttpGet("{id}")]
         public IActionResult GetAllPayments()
         {
             var payments = _context.Payments
@@ -35,22 +26,30 @@ namespace RentalManagement.API.Controllers
                 .Include(p => p.RentalAgreement)
                     .ThenInclude(r => r.Apartment)
                 .ToList();
+
             return Ok(payments);
         }
+
 
 
         [HttpPost]
         public IActionResult Post([FromBody] Payment payment)
         {
-            if(!_context.RentalAgreements.Any(r => r.Id == payment.RentalAgreementId))
+            var agreementExists = _context.RentalAgreements.Any(r => r.Id == payment.RentalAgreementId);
+
+            if (!agreementExists)
             {
-                return BadRequest("Nieprawidłowa umowa.");
+                return BadRequest("Nieprawidłowy RentalAgreementId.");
             }
+
             _context.Payments.Add(payment);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(Get), new { id = payment.Id }, payment);
+            return CreatedAtAction(nameof(GetAllPayments), new { id = payment.Id }, payment);
         }
+
+
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
