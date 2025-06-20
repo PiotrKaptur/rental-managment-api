@@ -92,7 +92,11 @@ namespace RentalManagement.API.Controllers
 
             if(!tenantExists || !apartmentExists)
             {
-                return BadRequest("Invalid TenantId or ApartmentId");
+                if (!tenantExists)
+                    return BadRequest("Invalid TenantId");
+
+                if (!apartmentExists)
+                    return BadRequest("Invalid ApartmentId");
             }
 
 

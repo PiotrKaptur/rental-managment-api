@@ -39,7 +39,7 @@ namespace RentalManagement.API.Controllers
 
             if (!agreementExists)
             {
-                return BadRequest("Nieprawidłowy RentalAgreementId.");
+                return BadRequest(new { message = "Nieprawidłowy RentalAgreementId." });
             }
 
             _context.Payments.Add(payment);

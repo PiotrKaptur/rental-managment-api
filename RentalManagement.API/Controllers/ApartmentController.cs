@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using RentalManagement.API.Data;
 using RentalManagement.API.Models;
-using SQLitePCL;
 
 namespace RentalManagement.API.Controllers
 {

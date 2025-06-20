@@ -80,7 +80,7 @@ namespace RentalManagement.API.Controllers
         {
             _context.Tenants.Add(tenant);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(GetAllTenants), new { id = tenant.Id }, tenant);
+            return CreatedAtAction(nameof(GetTenantById), new { id = tenant.Id }, tenant);
         }
     }
 }
