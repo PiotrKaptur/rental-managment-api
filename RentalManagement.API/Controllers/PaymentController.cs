@@ -66,5 +66,48 @@ namespace RentalManagement.API.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("overdue")]
+        public IActionResult GetOverduePayments()
+        {
+            var now = DateTime.Today;
+            var monthStart = new DateTime(now.Year, now.Month, 1);
+            var nextMonth = monthStart.AddMonths(1);
+
+            var activeAgreements = _context.RentalAgreements
+                .Include(r => r.Tenant)
+                .Include(r => r.Apartment)
+                .Where(r =>
+                    r.StartDate <= now &&
+                    (r.EndDate == null || r.EndDate >= now))
+                .ToList();
+
+
+            var overdueList = new List<object>(); //tymczasowo jako anonimowy obiekt
+
+            foreach (var agreement in activeAgreements)
+            {
+                bool hasPayment = _context.Payments.Any(p =>
+                p.RentalAgreementId == agreement.Id &&
+                p.PaymentDate >= monthStart &&
+                p.PaymentDate < nextMonth
+                );
+
+                if (!hasPayment)
+                {
+                    overdueList.Add(new
+                    {
+                        AgreementId = agreement.Id,
+                        Tenant = $"{agreement.Tenant.FirstName} {agreement.Tenant.LastName}",
+                        Apartment = agreement.Apartment.Address,
+                        Month = $"{monthStart:yyyy-MM}",
+                        AmountDue = agreement.MonthlyPayment,
+                        Currency = agreement.Currency
+                    });
+                }
+            }
+
+            return Ok(overdueList);
+        }
     }
 }
