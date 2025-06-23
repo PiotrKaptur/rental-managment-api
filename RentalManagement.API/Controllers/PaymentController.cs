@@ -17,6 +17,11 @@ namespace RentalManagement.API.Controllers
             _context = context;
         }
 
+
+
+        /// <summary>
+        /// Zwraca wszystkie zarejestrowane płatności wraz z powiązanymi umowami, lokatorami i mieszkaniami.
+        /// </summary>
         [HttpGet]
         public IActionResult GetAllPayments()
         {
@@ -32,6 +37,10 @@ namespace RentalManagement.API.Controllers
 
 
 
+        /// <summary>
+        /// Dodaje nową płatność przypisaną do istniejącej umowy najmu.
+        /// </summary>
+        /// <param name="payment">Obiekt płatności do dodania</param>
         [HttpPost]
         public IActionResult Post([FromBody] Payment payment)
         {
@@ -50,7 +59,10 @@ namespace RentalManagement.API.Controllers
 
 
 
-
+        /// <summary>
+        /// Usuwa płatność o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator płatności</param>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -67,6 +79,11 @@ namespace RentalManagement.API.Controllers
             return NoContent();
         }
 
+
+
+        /// <summary>
+        /// Zwraca listę zaległych płatności za bieżący miesiąc (brak wpłat przy aktywnych umowach).
+        /// </summary>
         [HttpGet("overdue")]
         public IActionResult GetOverduePayments()
         {
