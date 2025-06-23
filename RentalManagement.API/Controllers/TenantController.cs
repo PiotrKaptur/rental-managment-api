@@ -16,6 +16,11 @@ namespace RentalManagement.API.Controllers
             _context = context;
         }
 
+
+
+        /// <summary>
+        /// Zwraca listę wszystkich najemców.
+        /// </summary>
         [HttpGet]
         public IActionResult GetAllTenants()
         {
@@ -23,6 +28,10 @@ namespace RentalManagement.API.Controllers
             return Ok(tenants);
         }
 
+        /// <summary>
+        /// Zwraca szczegóły konkretnego najemcy na podtsawie identyfikatora
+        /// </summary>
+        /// <param name="id">Identyfikator najemcy</param>
         [HttpGet("{id}")]
         public IActionResult GetTenantById(int id)
         {
@@ -35,6 +44,13 @@ namespace RentalManagement.API.Controllers
             return Ok(tenant);
         }
 
+
+
+        /// <summary>
+        /// Aktualizuje dane najemcy.
+        /// </summary>
+        /// <param name="id">Identyfikator najemcy</param>
+        /// <param name="updatedTenant">Zaktualizowane dane najemcy</param>
         [HttpPut("{id}")]
         public IActionResult UpdateTenant(int id, [FromBody] Tenant updatedTenant)
         {
@@ -58,6 +74,12 @@ namespace RentalManagement.API.Controllers
             return NoContent();
         }
 
+
+
+        /// <summary>
+        /// Usuwa najemcę o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator najemcy</param>
         [HttpDelete("{id}")]
         public IActionResult DeleteTenant(int id)
         {
@@ -75,6 +97,12 @@ namespace RentalManagement.API.Controllers
             return NoContent(); // 204 No Content
         }
 
+
+
+        /// <summary>
+        /// Dodaje nowego najemcę do systemu.
+        /// </summary>
+        /// <param name="tenant">Obiekt najemcy do dodania</param>
         [HttpPost]
         public IActionResult AddTenant([FromBody] Tenant tenant)
         {
