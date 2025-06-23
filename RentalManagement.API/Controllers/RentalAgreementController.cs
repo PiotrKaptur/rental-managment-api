@@ -17,6 +17,11 @@ namespace RentalManagement.API.Controllers
             _context = context;
         }
 
+
+
+        /// <summary>
+        /// Zwraca wszystkie umowy najmu wraz z informacjami o najemcach i mieszkaniach.
+        /// </summary>
         [HttpGet]
         public IActionResult GetAllRentalAgreements()
         {
@@ -28,6 +33,12 @@ namespace RentalManagement.API.Controllers
             return Ok(rentalAgreements);
         }
 
+
+
+        /// <summary>
+        /// Zwraca szczegóły konkretnej umowy najmu na podstawie identyfikatora.
+        /// </summary>
+        /// <param name="id">Identyfikator umowy</param>
         [HttpGet("{id}")]
         public IActionResult GetRentalAgreementById(int id)
         {
@@ -45,6 +56,13 @@ namespace RentalManagement.API.Controllers
         }
 
 
+
+
+        /// <summary>
+        /// Aktualizuje dane umowy najmu.
+        /// </summary>
+        /// <param name="id">Identyfikator umowy</param>
+        /// <param name="updatedRentalAgreement">Zaktualizowane dane umowy</param>
         [HttpPut("{id}")]
         public IActionResult UpdateRentalAgreement(int id, [FromBody] RentalAgreement updatedRentalAgreement)
         {
@@ -67,6 +85,12 @@ namespace RentalManagement.API.Controllers
 
         }
 
+
+
+        /// <summary>
+        /// Usuwa umowę najmu o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator umowy</param>
         [HttpDelete("{id}")]
         public IActionResult DeleteRentalAgreement(int id)
         {
@@ -83,6 +107,12 @@ namespace RentalManagement.API.Controllers
             return NoContent();
         }
 
+
+
+        /// <summary>
+        /// Tworzy nową umowę najmu.
+        /// </summary>
+        /// <param name="rentalAgreement">Nowa umowa najmu</param>
         [HttpPost]
         public IActionResult AddRentalAgreement([FromBody] RentalAgreement rentalAgreement)
         {
