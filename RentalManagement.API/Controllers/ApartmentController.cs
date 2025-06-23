@@ -17,6 +17,11 @@ namespace RentalManagement.API.Controllers
             _context = context;
         }
 
+
+
+        /// <summary>
+        /// Zwraca listę wszystkich mieszkań.
+        /// </summary>
         [HttpGet]
         public IActionResult GetAllApartments()
         {
@@ -24,6 +29,13 @@ namespace RentalManagement.API.Controllers
             return Ok(apartments);
         }
 
+
+
+        /// <summary>
+        /// Aktualizuje dane mieszkania.
+        /// </summary>
+        /// <param name="id">Identyfikator mieszkania</param>
+        /// <param name="updatedApartment">Zaktualizowane dane mieszkania</param>
         [HttpPut("{id}")]
         public IActionResult UpdateApartment(int id, [FromBody] Apartment updatedApartment)
         {
@@ -45,6 +57,12 @@ namespace RentalManagement.API.Controllers
             return Ok(apartment);
         }
 
+
+
+        /// <summary>
+        /// Usuwa mieszkanie o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator mieszkania</param>
         [HttpDelete("{id}")]
         public IActionResult DeleteApartment(int id)
         {
@@ -62,6 +80,12 @@ namespace RentalManagement.API.Controllers
             return NoContent(); // 204 No Content - standard dla DELETE (REST API)
         }
 
+
+
+        /// <summary>
+        /// Dodaje nowe mieszkanie do systemu.
+        /// </summary>
+        /// <param name="apartment">Obiekt mieszkania do dodania</param>
         [HttpPost]
         public IActionResult AddApartment([FromBody] Apartment apartment)
         {
