@@ -24,13 +24,13 @@ Projekt REST API do zarządzania wynajmem mieszkań. Pozwala na rejestrowanie lo
 
 RentalManagement.API
 
-|Models/ → Klasy danych (Apartment, Tenant, RentalAgreement, Payment)
+|- Models/ → Klasy danych (Apartment, Tenant, RentalAgreement, Payment)
 
-|Controllers/ → Endpointy API
+|- Controllers/ → Endpointy API
 
-|Data/ → DbContext z EF Core
+|- Data/ → DbContext z EF Core
 
-|TestHelpers/ → Dane testowe i uruchomienie
+|- TestHelpers/ → Dane testowe i uruchomienie
 
-|Program.cs → Konfiguracja aplikacji
+|- Program.cs → Konfiguracja aplikacji
 
