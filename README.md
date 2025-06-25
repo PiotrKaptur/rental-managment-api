@@ -51,7 +51,7 @@ RentalManagement.API
 
 
 ## 📑 Endpointy
-## Najemcy
+### Najemcy
 GET /api/tenant
 
 GET /api/tenant/{id}
@@ -62,7 +62,7 @@ PUT /api/tenant/{id}
 
 DELETE /api/tenant/{id}
 
-## Mieszkania
+### Mieszkania
 GET /api/apartment
 
 POST /api/apartment
@@ -71,7 +71,7 @@ PUT /api/apartment/{id}
 
 DELETE /api/apartment/{id}
 
-## Umowy
+### Umowy
 GET /api/rentalagreement
 
 POST /api/rentalagreement
@@ -80,7 +80,7 @@ PUT /api/rentalagreement/{id}
 
 DELETE /api/rentalagreement/{id}
 
-## Płatności
+### Płatności
 GET /api/payment
 
 POST /api/payment
