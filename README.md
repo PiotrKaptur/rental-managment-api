@@ -34,3 +34,58 @@ RentalManagement.API
 
 |- Program.cs → Konfiguracja aplikacji
 
+
+
+
+## ⚙️ Jak uruchomić
+
+1. Otwórz projekt w Visual Studio 2022
+2. Upewnij się, że masz zainstalowany `SQLite` i `dotnet-ef`
+3. W terminalu:
+   ```bash
+   dotnet ef database update
+4. Uruchom aplikację (F5)
+5. Przejdź do: https://localhost:5001/swagger
+
+
+
+
+📑 Endpointy
+## Najemcy
+GET /api/tenant
+
+GET /api/tenant/{id}
+
+POST /api/tenant
+
+PUT /api/tenant/{id}
+
+DELETE /api/tenant/{id}
+
+## Mieszkania
+GET /api/apartment
+
+POST /api/apartment
+
+PUT /api/apartment/{id}
+
+DELETE /api/apartment/{id}
+
+## Umowy
+GET /api/rentalagreement
+
+POST /api/rentalagreement
+
+PUT /api/rentalagreement/{id}
+
+DELETE /api/rentalagreement/{id}
+
+## Płatności
+GET /api/payment
+
+POST /api/payment
+
+DELETE /api/payment/{id}
+
+GET /api/payment/overdue
+
