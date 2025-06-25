@@ -50,7 +50,7 @@ RentalManagement.API
 
 
 
-📑 Endpointy
+## 📑 Endpointy
 ## Najemcy
 GET /api/tenant
 
