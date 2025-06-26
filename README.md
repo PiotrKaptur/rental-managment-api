@@ -94,7 +94,7 @@ GET /api/payment/overdue
 
 
 
-👤 Autor
+## 👤 Autor
 Projekt realizowany jako ćwiczenie z C# / .NET.
 
 Autor: Piotr Kaptur
