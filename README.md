@@ -1,4 +1,4 @@
-# 🏢 RentalManagement.API
+# RentalManagement.API
 
 Projekt REST API do zarządzania wynajmem mieszkań. Pozwala na rejestrowanie lokali, najemców, umów oraz płatności czynszu.
 
